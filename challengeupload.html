@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title>
+        CTF webpage
+    </title>
+    <style>
+        body {
+            background-image: url('img/bcka.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+       }
+       .p1 {
+  font-family: "Papyrus", "Courier New", serif;
+       }
+       .p2 {
+        font-family: "Audiowide", sans-serif;
+       }
+
+ input[type=text], select {
+  width: 20%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+  </style>
+</head>
+
+<body>
+        <h2 Class="p1" style="color:rgb(244, 247, 245);font-size:100px;">Capture The Flag Contest</h2>
+    <img src="img/logo5.gif" width="1000" height="500">
+    <br><br><br><br>
+    <form action="/action_page.php">
+        <p Class="p2" style="color:rgb(249, 246, 246);font-size:30px;">
+            <label>Challenge Name : <input type="text" id="ChallengeName" value="ChallengeName" /></label>
+        </p>
+        <p Class="p2" style="color:rgb(249, 249, 249);font-size:30px;">
+            <label for="category">Choose your category:</label>
+            <select name="category" id="category" value="ChooseYourCategory:">
+                <option value="RE">RE</option>
+                <option value="PWN">PWN</option>
+                <option value="Crypto">Crypto</option>
+                <option value="Web">Web</option>
+                <option value="Stego">Stego</option>
+            
+            </select>
+        </p>
+        <p Class="p2" style="color:rgb(255, 255, 255);font-size:30px;">
+            <label>Challenge Difficulty Level : <input type="text" id="ChallengeDiffucultyLevel"
+                    value="ChallengeDiffucultyLevel" /></label>
+        </p>
+        <p Class="p2" style="color:rgb(255, 253, 253);font-size:30px;">
+            <label>Challenge Description : <input type="text" id="ChallengeDescription"
+                    value="ChallengeDescription" /></label>
+        </p>
+        <p Class="p2" style="color:rgb(255, 255, 255);font-size:30px;">
+            <label>Challenge Points : <input type="number" id="ChallengePoints" value="ChallengePoints" /></label>
+        </p>
+        <p Class="p2" style="color:rgb(255, 255, 255);font-size:30px;">
+            <label>Challenge flag : <input type="text" id="ChallengeFlag" value="ChallengeFlag" /></label>
+        </p>
+        <p Class="p2" style="color:rgb(255, 255, 255);font-size:30px;">
+            <label>Challenge hint : <input type="text" id="ChallengeHint" value="ChallengeHint" /></label>
+        </p>
+        <p Class="p2" style="color:rgb(255, 255, 255);font-size:30px;">
+            <label>Challenge Author : <input type="text" id="ChallengeAuthor" value="ChallengeAuthor" /></label>
+        </p>
+       </form>
+    <button onclick="submitForm()">Submit</button> 
+    <script>
+        function submitForm() {
+            var Cname = document.getElementById("name").value
+            var Ccategory = document.getElementById("id").value
+            var Clevel = document.getElementById("email").value
+            var Cdescription = document.getElementById("marks").value
+            var Cpoints = document.getElementById("email").value
+            var Cflag = document.getElementById("email").value
+            var Chint = document.getElementById("email").value
+            var Cauthor = document.getElementById("email").value 
+            
+            user = {
+                "Cname": ChallengeName,
+                "Ccategory": Chooseyourcategory,
+                "Clevel": ChallengeDiffucultyLevel,
+                "Cdescription": ChallengeDescription,
+                "Cpoints": ChallengePoints,   
+                "Cflag": Challengeflag,  
+                "Chint": ChallengeHint, 
+                "Cauthor": ChallengeAuthor
+                  }
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body: JSON.stringify(user)
+            }
+            let fetchRes = fetch(
+                "http://127.0.0.1:3000/challengeupload",
+                options);
+            fetchRes.then(res =>
+                res.json()).then(d => {
+                    console.log(d)
+                })
+            console.log(user)
+        }
+    </script>-->
+</body>
+
+</html>
